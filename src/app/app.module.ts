@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { RoutingModule } from './routing.module';
+
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
-    // replaced for Universal
-    // BrowserModule
-    BrowserModule.withServerTransition({ appId: 'alex-ov' })
+    BrowserModule.withServerTransition({ appId: 'alex-ov' }),
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
