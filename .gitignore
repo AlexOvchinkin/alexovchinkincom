@@ -39,4 +39,4 @@ testem.log
 Thumbs.db
 
 # assets
-/src/app/assets
+# /src/assets
