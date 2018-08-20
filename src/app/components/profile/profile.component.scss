@@ -1,0 +1,53 @@
+@import "~node_modules/bootstrap/scss/functions";
+@import "~node_modules/bootstrap/scss/mixins";
+@import "~src/sass/variables";
+
+.about {
+  margin-top: 3rem;
+}
+
+.about__img {
+  display: block;
+  margin: auto;
+}
+
+.about__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  margin-top: -3rem;
+
+  @include media-breakpoint-up(md) {
+    margin-top: -6rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 0;
+  }
+}
+
+.about__bold {
+  font-weight: $font-weight-bold;
+}
+
+.about__title {
+  font-size: $h3-font-size;
+  align-self: center;
+  margin-bottom: 3rem;
+
+  @include media-breakpoint-up(md) {
+    font-size: $h1-font-size;
+  }
+
+  @include media-breakpoint-up(lg) {
+    align-self: flex-start;
+  }
+}
+
+.about__text {
+  font-size: $h6-font-size;
+  color: $text-gray;
+}
