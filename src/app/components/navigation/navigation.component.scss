@@ -1,0 +1,58 @@
+@import "~node_modules/bootstrap/scss/functions";
+@import "~node_modules/bootstrap/scss/mixins";
+@import "~src/sass/variables";
+
+.navbar-toggler {
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-toggler__img {
+  @include media-breakpoint-up(lg) {
+    display: none;
+  }
+}
+
+.navbar-brand__img {
+  display: inline-block;
+  height: 3rem;
+  width: 3rem;
+}
+
+.navbar-brand__text {
+  font-size: $h4-font-size;
+  color: $blue;
+}
+
+.navbar-brand__name {
+  font-weight: $font-weight-bold;
+  margin-left: .5rem;
+}
+
+.nav-link {
+  font-size: $h5-font-size;
+}
+
+.nav-item--blog {
+  border: 1px solid $blue;
+  padding: 0 .8rem;
+  border-radius: 1.5rem;
+  margin: 0 1rem;
+
+  a {
+    color: $blue !important;
+  }
+}
+
+.nav-item--contact {
+  padding: 0 .8rem;
+  border-radius: 1.5rem;
+  background-color: $blue;
+
+  a {
+    color: white !important;
+  }
+}
