@@ -1,7 +1,6 @@
 @import "~node_modules/bootstrap/scss/functions";
 @import "~node_modules/bootstrap/scss/mixins";
 @import "~src/sass/variables";
-
 .about {
   padding-top: 3rem;
   background-color: $bg-gray;
@@ -21,7 +20,6 @@
   right: 20%;
   top: 0;
   z-index: 100;
-
   @include media-breakpoint-up(lg) {
     right: 0;
   }
@@ -37,11 +35,9 @@
   margin-top: 5rem;
   z-index: 110;
   position: relative;
-
   @include media-breakpoint-up(md) {
     margin-top: 30rem;
   }
-
   @include media-breakpoint-up(lg) {
     margin-top: 0;
   }
@@ -55,11 +51,9 @@
   font-size: $h3-font-size;
   align-self: center;
   margin-bottom: 3rem;
-
   @include media-breakpoint-up(md) {
     font-size: $h1-font-size;
   }
-
   @include media-breakpoint-up(lg) {
     align-self: flex-start;
   }
@@ -70,30 +64,25 @@
   color: $text-gray;
 }
 
-
 /////////////////////////////////////////
 // section: hiring
 .hiring {
   background-color: $bg-gray;
   position: relative;
   z-index: 90;
-
   @include media-breakpoint-up(md) {
     padding-top: 20rem;
   }
-
   @include media-breakpoint-up(lg) {
     padding-top: 20rem;
   }
 }
 
 .hiring__container {
-  height: 35rem;
-
+  height: 38rem;
   @include media-breakpoint-up(md) {
-    height: 40rem;
+    height: 42rem;
   }
-
   @include media-breakpoint-up(lg) {
     height: 35rem;
   }
@@ -102,11 +91,9 @@
 .hiring__title {
   font-size: $h3-font-size;
   text-align: center;
-
   @include media-breakpoint-up(md) {
     font-size: $h1-font-size;
   }
-
   @include media-breakpoint-up(lg) {
     text-align: end;
   }
@@ -119,7 +106,6 @@
   justify-content: flex-start;
   align-items: flex-start;
   color: $text-gray;
-
   @include media-breakpoint-up(lg) {
     justify-content: center;
   }
@@ -134,12 +120,16 @@
   position: absolute;
   left: 1rem;
   bottom: -15rem;
-
   @include media-breakpoint-up(md) {
     bottom: -35rem;
   }
 }
 
+.hiring__list {
+  li {
+    padding-bottom: 1rem;
+  }
+}
 
 /////////////////////////////////////////
 // section: skills
@@ -147,8 +137,150 @@
   background-color: $bg-gray;
   position: relative;
   z-index: 80;
+  padding-top: 10rem;
+  @include media-breakpoint-up(md) {
+    padding-top: 12rem;
+  }
 }
 
 .skills__container {
-  height: 20rem;
+  min-height: 20rem;
+}
+
+.skills__title {
+  font-size: $h3-font-size;
+  text-align: center;
+  margin-bottom: 3rem;
+  @include media-breakpoint-up(sm) {
+    text-align: left;
+  }
+  @include media-breakpoint-up(md) {
+    font-size: $h1-font-size;
+  }
+  @include media-breakpoint-up(lg) {
+    text-align: left;
+  }
+}
+
+.skills__img {
+  height: 6rem;
+  width: 6rem;
+  @include media-breakpoint-up(sm) {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, -1px, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 2px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, -4px, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 4px, 0);
+  }
+}
+
+.skills__img--sass {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    bottom: -4rem;
+    left: -20rem;
+    height: 7rem;
+    width: 7rem;
+  }
+}
+
+.skills__img--css {
+  @include media-breakpoint-up(md) {
+    left: 0;
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+.skills__img--js {
+  @include media-breakpoint-up(md) {
+    height: 12rem;
+    width: 12rem;
+    position: absolute;
+    top: 4rem;
+  }
+}
+
+.skills__img--bootstrap {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    bottom: -8rem;
+    left: 0rem;
+    height: 9rem;
+    width: 9rem;
+  }
+}
+
+.skills__img--php {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    bottom: -22rem;
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+.skills__img--less {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    top: 2rem;
+    height: 9rem;
+    width: 9rem;
+  }
+}
+
+.skills__img--angular {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    top: 15rem;
+    left: 2rem;
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+.skills__img--node {
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    top: 12rem;
+    left: 2rem;
+    height: 10rem;
+    width: 10rem;
+  }
+}
+
+.skills__table {
+  color: $text-gray;
+
+  tr:first-child td {
+    border: none;
+  }
+
+  @include media-breakpoint-up(md) {
+    margin-top: 27rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    margin-top: 0;
+  }
 }
