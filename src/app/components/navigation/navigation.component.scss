@@ -2,6 +2,10 @@
 @import "~node_modules/bootstrap/scss/mixins";
 @import "~src/sass/variables";
 
+.navbar {
+  background-color: $bg-gray;
+}
+
 .navbar-toggler {
   border: none;
   outline: none;
