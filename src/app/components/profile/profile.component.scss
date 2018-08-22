@@ -1,6 +1,6 @@
-@import "~node_modules/bootstrap/scss/functions";
-@import "~node_modules/bootstrap/scss/mixins";
-@import "~src/sass/variables";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/sass/variables";
 .about {
   padding-top: 3rem;
   background-color: $bg-gray;
@@ -282,5 +282,22 @@
 
   @include media-breakpoint-up(lg) {
     margin-top: 0;
+  }
+}
+
+/////////////////////////////////////////
+// section: projects
+.projects {
+  background-color: $bg-gray;
+}
+
+.projects__title {
+  font-size: $h3-font-size;
+  text-align: center;
+  padding-top: 5rem;
+  
+  @include media-breakpoint-up(md) {
+    font-size: $h1-font-size;
+    text-align: right;
   }
 }

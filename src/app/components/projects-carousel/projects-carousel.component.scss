@@ -1,0 +1,81 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/sass/variables";
+
+.projects-carousel {
+  background-color: $bg-gray;
+  margin-top: -1rem;
+
+  .item-wrapper {
+    display: flex;
+    height: 20rem;
+    align-items: flex-end;
+    justify-content: center;
+
+    @include media-breakpoint-up(md) {
+      height: 27rem;
+    }
+  }
+
+  img {
+    max-height: 15rem;
+    margin: 0 .5rem;
+
+    @include media-breakpoint-up(md) {
+      max-height: 20rem;
+    }
+  }
+
+  .img-wrapper {
+    overflow-x: scroll;
+    width: 50rem;
+    display: flex;
+    z-index: 20;
+    position: relative;
+    padding: .5rem;
+  }
+
+  .description-wrapper {
+    position: relative;
+  }
+
+  .description {
+    position: relative;
+    left: 3rem;
+    bottom: 4rem;
+    z-index: 10;
+    height: 15rem;
+    width: 15rem;
+    background-color: white;
+    padding: 1rem 2rem 0 2rem;
+    color: $text-gray;
+
+    @include media-breakpoint-up(md) {
+      height: 20rem;
+      width: 20rem;
+    }
+  }
+
+  .list-used {
+    list-style: disc;
+  }
+
+  .list-title {
+    font-size: $h5-font-size;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1rem;
+  }
+
+  button {
+    background-color: $bg-gray;
+    border: none;
+    cursor: pointer;
+  }
+}
