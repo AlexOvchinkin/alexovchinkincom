@@ -1,20 +1,19 @@
 <div id="projectsCarousel" class="carousel slide carousel-fade projects-carousel" data-ride="carousel" data-interval="0">
   <div class="carousel-inner">
-    <div *ngFor="let project of projects; let counter = index" class="carousel-item" 
-         [ngClass]="{ 'active': project.active }">
+    <div *ngFor="let project of projects; let counter = index" class="carousel-item" [ngClass]="{ 'active': project.active }">
       <div class="item-wrapper">
-        <div class="d-none d-md-block description-wrapper">
-          <ul class="list-unstyled shadow-sm description">
+        <div class="d-none d-lg-block shadow-sm description-wrapper">
+          <ul class="list-unstyled description">
             <li class="list-title">Project for pest-control company</li>
-            <li class="mt-2 ml-2">Used:
+            <li>Used:
               <ul class="list-used">
                 <li *ngFor="let tech of project.tech" class="ml-3 font-weight-bold">{{tech}}</li>
               </ul>
-            </li> 
+            </li>
             <li class="pt-1">
               <a class="font-weight-bold" [href]="project.url" target="_blank">Visit website</a>
             </li>
-            <li>  
+            <li>
               <a class="font-weight-bold font-italic" [href]="project.git" target="_blank">github source</a>
             </li>
           </ul>
@@ -28,11 +27,33 @@
           </div>
         </div>
         <div class="img-wrapper">
-          <img class="d-inline-block d-md-none shadow-sm" src="http:\\via.placeholder.com\300x300" alt="slide">
-          <img *ngFor="let image of project.images"
-               class="d-inline-block shadow-sm" src="assets\projects\{{image}}" alt="slide">
+          <ul class="list-unstyled shadow-sm d-block d-lg-none description-sm">
+            <li class="list-title">Project for pest-control company</li>
+            <li>Used:
+              <ul class="list-used">
+                <li *ngFor="let tech of project.tech" class="ml-3 font-weight-bold">{{tech}}</li>
+              </ul>
+            </li>
+            <li class="pt-1">
+              <a class="font-weight-bold" [href]="project.url" target="_blank">Visit website</a>
+            </li>
+            <li>
+              <a class="font-weight-bold font-italic" [href]="project.git" target="_blank">github source</a>
+            </li>
+          </ul>
+          <div *ngFor="let image of project.images">
+            <img class="shadow-sm" src="assets\projects\{{image}}" alt="slide">
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="buttons-sm d-lg-none">
+    <button class="ml-3 mr-1" (click)="clickPrevious()">
+      <span class="font-weight-bold">Previous</span>Project
+    </button>
+    <button class="ml-1" (click)="clickNext()">
+      <span class="font-weight-bold">Next</span>Project
+    </button>
   </div>
 </div>
