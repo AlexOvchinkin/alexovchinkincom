@@ -1,8 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/sass/variables";
+
 @import url('https://fonts.googleapis.com/css?family=Arimo');
 
 body {
   font-family: 'Arimo', sans-serif;
   overflow-x: hidden;
+  background-color: $bg-gray;
 }
 

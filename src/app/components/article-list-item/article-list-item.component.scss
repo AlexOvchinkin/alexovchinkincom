@@ -1,0 +1,7 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/sass/variables";
+
+.card-link {
+  font-weight: $font-weight-bold;
+}

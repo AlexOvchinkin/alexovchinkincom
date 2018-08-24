@@ -12,17 +12,19 @@
 
     <div class="collapse navbar-collapse" id="navigation">
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="#">About me</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">My skills</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">My projects</a>
+          <a class="nav-link" [routerLink]="['profile']" fragment="projects" (click)="onLinkClick()">
+            My projects
+          </a>
         </li>
         <li class="nav-item nav-item--blog">
-          <a class="nav-link" href="#">My blog</a>
+          <a class="nav-link" href="/blog">My blog</a>
         </li>
         <li class="nav-item nav-item--contact">
           <a class="nav-link" href="#">Contact me</a>
