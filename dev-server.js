@@ -1,7 +1,9 @@
 const express = require('express');
 const cors = require('cors');
 const api = require('./server/api');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const mongo = require('./server/lib/mongo');
+const logger = require('./server/lib/logger');
 
 // Express instance
 const app = express();
@@ -14,8 +16,17 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+// connect to Mongo DB
+mongo.connect();
+
 // API routes
 app.use('/api', api);
+
+// global error handler
+function errorHandler(err, req, res, next) {
+  logger.error(err);
+  res.status(500).json(err);
+}
 
 // start dev-server
 app.listen(3000, function () {

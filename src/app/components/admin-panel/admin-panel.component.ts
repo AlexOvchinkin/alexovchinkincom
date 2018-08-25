@@ -10,6 +10,7 @@ import { AdministrationService } from '../../services/administration.service';
 export class AdminPanelComponent implements OnInit {
 
   formGroup: FormGroup;
+  error: string = '';
 
   constructor(private fb: FormBuilder, private adminService: AdministrationService) { }
 
@@ -24,8 +25,14 @@ export class AdminPanelComponent implements OnInit {
 
   formSubmit(): void {
     if (this.formGroup.valid) {
-      this.adminService.createNewArticle(this.formGroup.value);
+      this.adminService.createNewArticle(this.formGroup.value)
+        .subscribe(result => {
+          this.formGroup.reset();
+          this.error = '';
+        },
+          err => {
+            this.error = 'error';
+          });
     }
   }
-
 }

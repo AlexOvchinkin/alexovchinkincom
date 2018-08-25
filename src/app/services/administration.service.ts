@@ -8,8 +8,7 @@ export class AdministrationService {
 
   constructor(private http: HttpClient) { }
 
-  createNewArticle(value: any): void {
-    this.http.post('http://localhost:3000/api/new-article', value)
-      .subscribe(data => console.log('done'));
+  createNewArticle(value: any): any {
+    return this.http.post('http://localhost:3000/api/new-article', value);
   }
 }

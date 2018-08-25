@@ -1,5 +1,5 @@
 export default interface IArticle {
-  id: number,
+  _id: number,
   title: string,
   description: string,
   text: string,

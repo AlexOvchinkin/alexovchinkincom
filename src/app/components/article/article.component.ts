@@ -10,7 +10,13 @@ import IArticle from '../../interfaces/IArticle';
 })
 export class ArticleComponent implements OnInit {
 
-  article: IArticle = undefined;
+  article: IArticle = {
+    _id: 0,
+    description: '',
+    source: '',
+    text: '',
+    title: ''
+  };
 
   constructor(private route: ActivatedRoute,
     private blogService: BlogService) { }
@@ -22,7 +28,7 @@ export class ArticleComponent implements OnInit {
 
         if (id) {
           this.blogService.getArticleById(id)
-            .subscribe(item => this.article = item);
+            .subscribe(article => this.article = article);
         }
       });
   }

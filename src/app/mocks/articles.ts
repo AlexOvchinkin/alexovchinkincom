@@ -2,42 +2,42 @@ import IArticle from "../interfaces/IArticle";
 
 export const articles: IArticle[] = [
   {
-    id: 0,
+    _id: 0,
     title: 'It is title',
     description: 'It is description of this article. Short text.',
     text: '<p class="font-weight-bold">It is main text of article.</p>',
     source: ''
   },
   {
-    id: 1,
+    _id: 1,
     title: 'It is title',
     description: 'It is description of this article. Short text.',
     text: '<p class="font-weight-bold">It is main text of article.</p>',
     source: ''
   },
   {
-    id: 2,
+    _id: 2,
     title: 'It is title',
     description: 'It is description of this article. Short text.',
     text: '<p class="font-weight-bold">It is main text of article.</p>',
     source: ''
   },
   {
-    id: 3,
+    _id: 3,
     title: 'It is title lorem ipsum',
     description: 'It is description of this article. Short text.',
     text: '<p class="font-weight-bold">It is main text of article.</p>',
     source: ''
   },
   {
-    id: 4,
+    _id: 4,
     title: 'It is title',
     description: 'It is description of this article. Short text.',
     text: '<p class="font-weight-bold">It is main text of article.</p>',
     source: ''
   },
   {
-    id: 5,
+    _id: 5,
     title: 'How to use Environment Variables keep your secret keys safe & secure!',
     description: 'Avoid (accidentally) committing (exposing) your private keys, passwords or other sensitive details(by hard-coding in them in your script) to GitHub by storing them as environment variables',
     text: `
