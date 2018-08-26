@@ -24,6 +24,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+// connect to Mongo DB
+mongo.connect();
+
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 

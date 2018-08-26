@@ -3,5 +3,6 @@ export default interface IArticle {
   title: string,
   description: string,
   text: string,
-  source: string
+  source: string,
+  tag?: string
 }

@@ -1,5 +1,22 @@
 <div class="container">
-  <form [formGroup]="formGroup" (submit)="formSubmit()">
+  <form class="mt-5" [formGroup]="formGroup" (submit)="formSubmit()">
+    <div class="form-group">
+      <div class="d-flex">
+        <button type="button" class="btn btn-success mr-3" (click)="newTag()">+ new tag</button>
+        <div class="dropdown">
+          <button class="btn btn-success dropdown-toggle" type="button" id="dropdownTags" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false" (click)="toggleDropdownTags()">
+            Choose tag ...
+          </button>
+          <ul class="dropdown-menu" [ngClass]="{'d-block': tagsModeOpen}" aria-labelledby="dropdownTags">
+            <li *ngFor="let item of tags" class="dropdown-item" (click)="tagClick(item.tag)">
+              {{item.tag}}
+            </li>
+          </ul>
+        </div>
+        <input class="form-control-plaintext ml-3" type="text" formControlName="tag" readonly>
+      </div>
+    </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Title:</label>
       <input type="text" class="form-control" id="title" placeholder="title" formControlName="title">
