@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileService } from '../../services/profile.service';
+import { APIService } from '../../services/api.service';
 import IProfileProject from '../../interfaces/IProfileProject';
 
 @Component({
@@ -12,10 +12,10 @@ export class ProjectsCarouselComponent implements OnInit {
   projects: IProfileProject[] = [];
   currentProject: number = 0;
 
-  constructor(private profileService: ProfileService) { }
+  constructor(private apiService: APIService) { }
 
   ngOnInit() {
-    this.profileService.getProjects()
+    this.apiService.getProjects()
       .subscribe(data => {
         this.projects = data;
       });

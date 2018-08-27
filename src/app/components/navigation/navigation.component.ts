@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd } from '@angular/router';
-import { ProfileService } from '../../services/profile.service';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-navigation',
@@ -10,25 +9,18 @@ import { ProfileService } from '../../services/profile.service';
 export class NavigationComponent implements OnInit, AfterViewInit {
 
   fragment: string = '';
-  show: boolean = true;
+  show: boolean = false;
   smallMenu: boolean = false;
 
-  constructor(private route: ActivatedRoute, private profileService: ProfileService) { }
+  constructor(private navService: NavigationService) { }
 
   ngOnInit() {
-    this.profileService.menuTogglerStream
+    this.navService.menuTogglerStream
       .subscribe(toggle => {
         this.smallMenu = toggle;
       });
 
-    this.profileService.menuTogglerStream
-      .next(false);
-
-    /* this.route.fragment
-      .subscribe(fragment => {
-        this.fragment = fragment;
-        console.log(this.fragment);
-      }); */
+    this.navService.setSmallMenu(false);
   }
 
   ngAfterViewInit(): void {
@@ -36,12 +28,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   }
 
   onLinkClick(): void {
-    /* this.route.fragment
-      .subscribe(fragment => {
-        if(fragment) {
-          document.querySelector('#' + fragment).scrollIntoView();
-        }
-      });*/
+    
   }
 
   toggleMenu(): void {

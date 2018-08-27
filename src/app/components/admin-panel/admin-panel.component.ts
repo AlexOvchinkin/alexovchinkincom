@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AdministrationService } from '../../services/administration.service';
+import { APIService } from '../../services/api.service';
 import { concat } from 'rxjs/operators';
 import ITag from '../../interfaces/ITag';
 
@@ -16,7 +16,7 @@ export class AdminPanelComponent implements OnInit {
   tagsModeOpen: boolean = false;
   tags: ITag[] = [];
 
-  constructor(private fb: FormBuilder, private adminService: AdministrationService) { }
+  constructor(private fb: FormBuilder, private apiService: APIService) { }
 
   ngOnInit() {
     this.formGroup = this.fb.group({
@@ -32,7 +32,7 @@ export class AdminPanelComponent implements OnInit {
 
   formSubmit(): void {
     if (this.formGroup.valid) {
-      this.adminService.createNewArticle(this.formGroup.value)
+      this.apiService.createNewArticle(this.formGroup.value)
         .subscribe(result => {
           this.formGroup.reset();
           this.error = '';
@@ -48,7 +48,7 @@ export class AdminPanelComponent implements OnInit {
   }
 
   setTags(): void {
-    this.adminService.getTags()
+    this.apiService.getTags()
       .subscribe(tags => this.tags = tags);
   }
 
@@ -59,8 +59,8 @@ export class AdminPanelComponent implements OnInit {
 
   newTag(): void {
     const newTag = prompt('Type new TAG', '');
-    this.adminService.addNewTag(newTag)
-      .pipe(concat(this.adminService.getTags()))
+    this.apiService.addNewTag(newTag)
+      .pipe(concat(this.apiService.getTags()))
       .subscribe(tags => this.tags = tags as ITag[]);
   }
 }

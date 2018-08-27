@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../../services/blog.service';
 import IArticle from '../../interfaces/IArticle';
-import { ProfileService } from '../../services/profile.service';
+import { NavigationService } from '../../services/navigation.service';
+import ITag from '../../interfaces/ITag';
+import { APIService } from '../../services/api.service';
 
 @Component({
   selector: 'app-article-list',
@@ -11,14 +12,38 @@ import { ProfileService } from '../../services/profile.service';
 export class ArticleListComponent implements OnInit {
 
   articles: IArticle[] = [];
+  tags: ITag[] = [];
+  tagsModeOpen: boolean = false;
+  currentTag: ITag = { tag: '' };
 
-  constructor(private blogService: BlogService, private profileService: ProfileService) { }
+  constructor(private navService: NavigationService,
+    private apiService: APIService) { }
 
   ngOnInit() {
-    this.profileService.menuTogglerStream.next(true);
+    this.navService.menuTogglerStream.next(true);
 
-    this.blogService.getArticles()
+    this.apiService.getArticles()
       .subscribe(data => this.articles = data);
+
+    this.apiService.getTags()
+      .subscribe(tags => this.tags = tags);
+  }
+
+  toggleDropdownTags(): void {
+    this.tagsModeOpen = !this.tagsModeOpen;
+  }
+
+  tagClick(tag: ITag): void {
+    this.toggleDropdownTags();
+    this.currentTag = tag;
+  }
+
+  cleanCurrentTag(): void {
+    this.currentTag = { tag: '' };
+  }
+
+  loadTags(): void {
+
   }
 
 }

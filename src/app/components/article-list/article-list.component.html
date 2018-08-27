@@ -1,4 +1,32 @@
 <div class="container">
+
+
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <button class="btn btn-success dropdown-toggle" type="button" id="dropdownTags" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" (click)="toggleDropdownTags()">
+        Filter by tag
+      </button>
+      <ul class="dropdown-menu" [ngClass]="{'d-block': tagsModeOpen}" aria-labelledby="dropdownTags">
+        <li *ngFor="let item of tags" class="dropdown-item" (click)="tagClick(item)">
+          {{item.tag}}
+        </li>
+      </ul>
+    </div>
+    <input type="text" class="form-control d-none d-md-flex" [value]="currentTag.tag" readonly>
+    <div class="input-group-append d-none d-md-flex">
+      <button class="btn btn-danger" type="button" (click)="cleanCurrentTag()">X</button>
+    </div>
+  </div>
+
+  <div class="input-group d-md-none mt-3">
+    <input type="text" class="form-control" [value]="currentTag.tag" readonly>
+    <div class="input-group-append">
+      <button class="btn btn-danger" type="button" (click)="cleanCurrentTag()">X</button>
+    </div>
+  </div>
+
   <div class="card-columns article-list">
     <app-article-list-item *ngFor="let article of articles" [article]="article">
     </app-article-list-item>
