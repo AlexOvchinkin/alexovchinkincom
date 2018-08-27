@@ -9,6 +9,7 @@ import { UrlInterceptor } from './classes/url-interceptor';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { PipesModule } from './modules/pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
   imports: [
     BrowserModule.withServerTransition({ appId: 'alex-ov' }),
     RoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    PipesModule
   ],
   providers: [
     {

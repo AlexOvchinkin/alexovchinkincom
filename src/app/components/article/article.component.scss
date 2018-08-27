@@ -1,3 +1,16 @@
-.card {
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
+@import "src/sass/variables";
+
+nav {
   margin-top: 3rem;
+  width: 100%;
+
+  @include media-breakpoint-up(lg) {
+    width: 50%;  
+  }
+}
+
+.card {
+  margin-top: 1rem;
 }

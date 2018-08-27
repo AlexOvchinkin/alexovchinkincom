@@ -13,6 +13,8 @@ export class ArticleListItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    
+  }
 
 }

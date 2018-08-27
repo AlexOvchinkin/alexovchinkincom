@@ -38,13 +38,19 @@
 
 .nav-link {
   font-size: $h5-font-size;
+  text-align: center;
 }
 
 .nav-item--blog {
   border: 1px solid $blue;
   padding: 0 .8rem;
   border-radius: 1.5rem;
-  margin: 0 1rem;
+  margin: 1rem 0;
+  text-align: center;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 1rem;
+  }
 
   a {
     color: $blue !important;
@@ -55,6 +61,12 @@
   padding: 0 .8rem;
   border-radius: 1.5rem;
   background-color: $blue;
+  text-align: center;
+  margin: 0;
+
+  @include media-breakpoint-up(lg) {
+    margin: 0 1rem;
+  }
 
   a {
     color: white !important;

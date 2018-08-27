@@ -1,7 +1,7 @@
 import { Injectable, isDevMode } from '@angular/core';
 import '../mocks/projects';
 import IProfileProject from '../interfaces/IProfileProject';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { of } from 'rxjs'
 import projects from '../mocks/projects';
 
@@ -9,6 +9,8 @@ import projects from '../mocks/projects';
   providedIn: 'root'
 })
 export class ProfileService {
+
+  menuTogglerStream: Subject<boolean> = new Subject<boolean>();
 
   constructor() { }
 

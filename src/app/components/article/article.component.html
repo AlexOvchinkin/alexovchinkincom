@@ -1,4 +1,12 @@
 <div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="/blog">Blog</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">{{article.title | cutString:10}}</li>
+    </ol>
+  </nav>
   <div class="card shadow-sm">
     <div class="card-body">
       <span class="text-muted">from </span>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 import IArticle from '../../interfaces/IArticle';
+import { ProfileService } from '../../services/profile.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-article',
@@ -18,19 +20,18 @@ export class ArticleComponent implements OnInit {
     title: ''
   };
 
-  constructor(private route: ActivatedRoute,
-    private blogService: BlogService) { }
+  constructor(private route: ActivatedRoute, private router: Router, 
+    private blogService: BlogService, private profileService: ProfileService) { }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(params => {
-        const id = params['id'];
+    this.profileService.menuTogglerStream.next(true);
 
-        if (id) {
-          this.blogService.getArticleById(id)
-            .subscribe(article => this.article = article);
-        }
-      });
+    this.route.params
+      .pipe(switchMap(this.blogService.getArticleById.bind(this.blogService)))
+      .subscribe(
+        article => this.article = article as IArticle,
+        err => this.router.navigate(['blog'])
+      );
   }
 
 }

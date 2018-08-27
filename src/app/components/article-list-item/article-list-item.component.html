@@ -1,7 +1,8 @@
 <div class="card shadow-sm">
   <div class="card-body">
+    <p class="badge badge-success">{{article.tag | tag}}</p>
     <h5 class="card-title">{{article.title}}</h5>
-    <p class="card-text text-muted">{{article.description}}</p>
+    <p class="card-text text-muted">{{article.description | cutString:100}}</p>
     <a class="card-link" [routerLink]="[article._id]">read more</a>
   </div>
 </div>

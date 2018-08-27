@@ -15,7 +15,9 @@ export class BlogService {
     return this.http.get(`${environment.serverOrigin}/api/articles`) as Observable<IArticle[]>;
   }
 
-  getArticleById(id: number): Observable<IArticle> {
+  getArticleById(params: number): Observable<IArticle> {
+    const id = params['id'];
     return this.http.get(`${environment.serverOrigin}/api/article/${id}`) as Observable<IArticle>;
-  }
+  } 
+
 }
