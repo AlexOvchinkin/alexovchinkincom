@@ -14,13 +14,13 @@ export class ArticleListComponent implements OnInit {
   articles: IArticle[] = [];
   tags: ITag[] = [];
   tagsModeOpen: boolean = false;
-  currentTag: ITag = { tag: '' };
+  currentTag: ITag = { _id: 0, tag: '' };
 
   constructor(private navService: NavigationService,
     private apiService: APIService) { }
 
   ngOnInit() {
-    this.navService.menuTogglerStream.next(true);
+    this.navService.setSmallMenu(true);
 
     this.apiService.getArticles()
       .subscribe(data => this.articles = data);
@@ -36,14 +36,12 @@ export class ArticleListComponent implements OnInit {
   tagClick(tag: ITag): void {
     this.toggleDropdownTags();
     this.currentTag = tag;
+
+    this.apiService.getArticlesByTag(tag)
+      .subscribe(data => this.articles = data);
   }
 
   cleanCurrentTag(): void {
-    this.currentTag = { tag: '' };
+    this.currentTag = { _id: 0, tag: '' };
   }
-
-  loadTags(): void {
-
-  }
-
 }

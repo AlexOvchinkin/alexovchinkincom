@@ -9,12 +9,12 @@
             Choose tag ...
           </button>
           <ul class="dropdown-menu" [ngClass]="{'d-block': tagsModeOpen}" aria-labelledby="dropdownTags">
-            <li *ngFor="let item of tags" class="dropdown-item" (click)="tagClick(item.tag)">
+            <li *ngFor="let item of tags" class="dropdown-item" (click)="tagClick(item)">
               {{item.tag}}
             </li>
           </ul>
         </div>
-        <input class="form-control-plaintext ml-3" type="text" formControlName="tag" readonly>
+        <input class="form-control-plaintext ml-3" type="text" [value]="currentTag" readonly>
       </div>
     </div>
     <div class="form-group">

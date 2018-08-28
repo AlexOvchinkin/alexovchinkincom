@@ -15,6 +15,7 @@ export class AdminPanelComponent implements OnInit {
   error: string = '';
   tagsModeOpen: boolean = false;
   tags: ITag[] = [];
+  currentTag: string = '';
 
   constructor(private fb: FormBuilder, private apiService: APIService) { }
 
@@ -24,7 +25,7 @@ export class AdminPanelComponent implements OnInit {
       source: ['', [Validators.required]],
       description: ['', [Validators.required]],
       text: ['', [Validators.required]],
-      tag: ['']
+      tag: [{ tag: '' }]
     });
 
     this.setTags();
@@ -52,8 +53,9 @@ export class AdminPanelComponent implements OnInit {
       .subscribe(tags => this.tags = tags);
   }
 
-  tagClick(tag): void {
+  tagClick(tag: ITag): void {
     this.formGroup.controls['tag'].setValue(tag);
+    this.currentTag = tag.tag;
     this.toggleDropdownTags();
   }
 

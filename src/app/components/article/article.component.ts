@@ -24,7 +24,7 @@ export class ArticleComponent implements OnInit {
     private apiService: APIService, private navService: NavigationService) { }
 
   ngOnInit() {
-    this.navService.menuTogglerStream.next(true);
+    this.navService.setSmallMenu(true);
 
     this.route.params
       .pipe(switchMap(this.apiService.getArticleById.bind(this.apiService)))

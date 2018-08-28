@@ -28,13 +28,17 @@ export class APIService {
   }
 
   getArticles(): Observable<IArticle[]> {
-    return this.http.get(`${environment.serverOrigin}/api/articles`) as Observable<IArticle[]>;
+    return this.http.get(`${environment.serverOrigin}/api/articles/all`) as Observable<IArticle[]>;
   }
 
   getArticleById(params: number): Observable<IArticle> {
     const id = params['id'];
     return this.http.get(`${environment.serverOrigin}/api/article/${id}`) as Observable<IArticle>;
-  } 
+  }
+
+  getArticlesByTag(tag: ITag): Observable<IArticle[]> {
+    return this.http.get(`${environment.serverOrigin}/api/articles/tag/${tag._id}`) as Observable<IArticle[]>;
+  }
 
   getProjects(): Observable<IProfileProject[]> {
     return of(projects);
