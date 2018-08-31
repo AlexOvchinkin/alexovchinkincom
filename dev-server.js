@@ -4,6 +4,7 @@ const api = require('./server/api');
 const bodyParser = require('body-parser');
 const mongo = require('./server/lib/mongo');
 const logger = require('./server/lib/logger');
+const users = require('./server/lib/users');
 
 // Express instance
 const app = express();
@@ -17,7 +18,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 // connect to Mongo DB
-mongo.connect();
+mongo.connect(function(dbInstance) {
+  users.setDefaultUsers(dbInstance);
+});
 
 // API routes
 app.use('/api', api);

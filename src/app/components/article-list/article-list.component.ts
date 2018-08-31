@@ -21,12 +21,8 @@ export class ArticleListComponent implements OnInit {
 
   ngOnInit() {
     this.navService.setSmallMenu(true);
-
-    this.apiService.getArticles()
-      .subscribe(data => this.articles = data);
-
-    this.apiService.getTags()
-      .subscribe(tags => this.tags = tags);
+    this.loadAllArticles();
+    this.loadTags();
   }
 
   toggleDropdownTags(): void {
@@ -43,5 +39,16 @@ export class ArticleListComponent implements OnInit {
 
   cleanCurrentTag(): void {
     this.currentTag = { _id: 0, tag: '' };
+    this.loadAllArticles();
+  }
+
+  loadAllArticles(): void {
+    this.apiService.getArticles()
+      .subscribe(data => this.articles = data);
+  }
+
+  loadTags(): void {
+    this.apiService.getTags()
+      .subscribe(tags => this.tags = tags);
   }
 }

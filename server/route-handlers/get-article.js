@@ -1,5 +1,5 @@
 const mongo = require('../lib/mongo');
-var mongodb = require('mongodb');
+const mongodb = require('mongodb');
 
 module.exports = function (req, res, next) {
   const db = mongo.getDB();

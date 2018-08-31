@@ -40,3 +40,6 @@ Thumbs.db
 
 # assets
 /src/assets
+
+# "secret" files
+/server/confidential

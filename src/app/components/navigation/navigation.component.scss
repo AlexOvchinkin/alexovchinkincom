@@ -39,9 +39,14 @@
 .nav-link {
   font-size: $h5-font-size;
   text-align: center;
+
+  img {
+    display: block;
+    height: 1.8rem;
+  }
 }
 
-.nav-item--blog {
+.nav-item--outline {
   border: 1px solid $blue;
   padding: 0 .8rem;
   border-radius: 1.5rem;

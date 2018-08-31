@@ -1,11 +1,11 @@
 const MongoClient = require('mongodb').MongoClient;
-const config = require('../config');
+const config = require('../confidential/config');
 
 const url = `mongodb://${config.mongo.server}`;
 let db;
 
 module.exports = {
-  connect: function () {
+  connect: function (cb) {
     MongoClient.connect(url, {
         useNewUrlParser: true
       },
@@ -17,6 +17,8 @@ module.exports = {
 
         console.log("Mongo DB connected successfully");
         db = client.db(config.mongo.db);
+
+        cb(db);
       });
   },
   getDB: function () {

@@ -19,18 +19,21 @@
           <a class="nav-link" href="#">About me</a>
         </li>
         <li class="nav-item" [ngClass]="{'d-none': smallMenu}">
-          <a class="nav-link" href="#">My skills</a>
+          <a class="nav-link" href="#">Skills</a>
         </li>
         <li class="nav-item" [ngClass]="{'d-none': smallMenu}">
           <a class="nav-link" [routerLink]="['profile']" fragment="projects" (click)="onLinkClick()">
-            My projects
+            Projects
           </a>
         </li>
-        <li class="nav-item nav-item--blog">
-          <a class="nav-link" href="/blog">My blog</a>
+        <li class="nav-item nav-item--outline">
+          <a class="nav-link" href="/blog">Blog</a>
         </li>
         <li class="nav-item nav-item--contact">
-          <a class="nav-link" href="#">Contact me</a>
+          <a class="nav-link" href="#">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admin"><img src="assets/img/sign-in.png" alt="sign in"></a>
         </li>
       </ul>
     </div>
