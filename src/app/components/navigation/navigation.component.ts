@@ -27,8 +27,9 @@ export class NavigationComponent implements OnInit, AfterViewInit {
 
   }
 
-  onLinkClick(): void {
-    
+  onLinkClick(ev: Event, className): void {
+    ev.preventDefault();
+    document.querySelector(`.${className}`).scrollIntoView();
   }
 
   toggleMenu(): void {

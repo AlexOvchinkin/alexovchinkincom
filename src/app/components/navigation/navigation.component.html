@@ -16,24 +16,24 @@
           <a class="nav-link" href="/">About me</a>
         </li>
         <li class="nav-item" [ngClass]="{'d-none': smallMenu}">
-          <a class="nav-link" href="#">About me</a>
+          <a class="nav-link" href="#" (click)="onLinkClick($event, 'hiring')">About me</a>
         </li>
         <li class="nav-item" [ngClass]="{'d-none': smallMenu}">
-          <a class="nav-link" href="#">Skills</a>
+          <a class="nav-link" href="#" (click)="onLinkClick($event, 'skills')">Skills</a>
         </li>
         <li class="nav-item" [ngClass]="{'d-none': smallMenu}">
-          <a class="nav-link">
+          <a class="nav-link" href="#" (click)="onLinkClick($event, 'projects')">
             Projects
           </a>
         </li>
-        <li class="nav-item nav-item--outline" [ngClass]="{'d-none': smallMenu}">
+        <li class="nav-item nav-item--outline">
           <a class="nav-link" href="/blog">Blog</a>
         </li>
         <li class="nav-item nav-item--contact" [ngClass]="{'d-none': smallMenu}">
-          <a class="nav-link" href="#">Contacts</a>
+          <a class="nav-link" href="#" (click)="onLinkClick($event, 'contact')">Contacts</a>
         </li>
         <li class="nav-item p-0" [ngClass]="{'d-none': !smallMenu}">
-          <a class="nav-link p-0" href="/admin"><img src="assets/img/sign-in.png" alt="sign in"></a>
+          <a class="nav-link p-0" href="/admin"><img class="mx-auto" src="assets/img/sign-in.png" alt="sign in"></a>
         </li>
       </ul>
     </div>

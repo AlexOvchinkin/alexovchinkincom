@@ -11,6 +11,7 @@ const bodyParser = require('body-parser');
 const api = require('./server/api');
 const mongo = require('./server/lib/mongo');
 const logger = require('./server/lib/logger');
+const users = require('./server/lib/users');
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -25,7 +26,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 // connect to Mongo DB
-mongo.connect();
+mongo.connect(function(dbInstance) {
+  users.setDefaultUsers(dbInstance);
+});
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
