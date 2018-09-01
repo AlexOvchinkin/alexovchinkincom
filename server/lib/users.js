@@ -34,7 +34,15 @@ function hashPassword(password) {
   return crypto.pbkdf2Sync(password, config.password.salt, 2048, 32, 'sha512').toString('hex');
 }
 
+function isPasswordValid(user, password) {
+  if(!user || !password) return false;
+
+  const hashedPassword = crypto.pbkdf2Sync(password, config.password.salt, 2048, 32, 'sha512').toString('hex');
+  return user.password === hashedPassword;
+}
+
 module.exports = {
   setDefaultUsers: setDefaultUsers,
-  hashPassword: hashPassword
+  hashPassword: hashPassword,
+  isPasswordValid: isPasswordValid
 }

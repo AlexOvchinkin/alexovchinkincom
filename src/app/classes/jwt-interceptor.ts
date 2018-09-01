@@ -10,11 +10,19 @@ import {
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class UrlInterceptor implements HttpInterceptor {
+export class jwtInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    //console.log(req);
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (user && user.token) {
+      req = req.clone({
+        setHeaders: {
+          Authorization: user.token
+        }
+      });
+    }
 
     return next.handle(req);
   }

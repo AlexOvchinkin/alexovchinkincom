@@ -2,3 +2,7 @@ form {
   max-width: 30rem;
   margin: 5rem auto 0 auto;
 }
+
+input.ng-invalid.ng-touched {
+  outline: 1px solid red;
+}

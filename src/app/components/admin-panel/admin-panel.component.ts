@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { APIService } from '../../services/api.service';
 import { concat } from 'rxjs/operators';
 import ITag from '../../interfaces/ITag';
+import { Router } from '@angular/router';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -17,15 +19,18 @@ export class AdminPanelComponent implements OnInit {
   tags: ITag[] = [];
   currentTag: string = '';
 
-  constructor(private fb: FormBuilder, private apiService: APIService) { }
+  constructor(private fb: FormBuilder, private apiService: APIService,
+    private router: Router, private navService: NavigationService) { }
 
   ngOnInit() {
+    this.navService.setSmallMenu(true);
+    
     this.formGroup = this.fb.group({
       title: ['', [Validators.required]],
       source: ['', [Validators.required]],
       description: ['', [Validators.required]],
       text: ['', [Validators.required]],
-      tag: [{ tag: '' }]
+      tag: [{ _id: 0, tag: '' }]
     });
 
     this.setTags();
@@ -39,6 +44,10 @@ export class AdminPanelComponent implements OnInit {
           this.error = '';
         },
           err => {
+            if(err.status === 401) {
+              this.router.navigate(['/login']);
+            }
+
             this.error = 'error';
           });
     }

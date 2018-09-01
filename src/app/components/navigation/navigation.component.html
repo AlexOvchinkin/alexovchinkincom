@@ -12,7 +12,7 @@
 
     <div class="collapse navbar-collapse" [ngClass]="{'show': show}" id="navigation">
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item" [ngClass]="{'d-none': !smallMenu}">
+        <li class="nav-item nav-item--outline" [ngClass]="{'d-none': !smallMenu}">
           <a class="nav-link" href="/">About me</a>
         </li>
         <li class="nav-item" [ngClass]="{'d-none': smallMenu}">
@@ -22,18 +22,18 @@
           <a class="nav-link" href="#">Skills</a>
         </li>
         <li class="nav-item" [ngClass]="{'d-none': smallMenu}">
-          <a class="nav-link" [routerLink]="['profile']" fragment="projects" (click)="onLinkClick()">
+          <a class="nav-link">
             Projects
           </a>
         </li>
-        <li class="nav-item nav-item--outline">
+        <li class="nav-item nav-item--outline" [ngClass]="{'d-none': smallMenu}">
           <a class="nav-link" href="/blog">Blog</a>
         </li>
-        <li class="nav-item nav-item--contact">
+        <li class="nav-item nav-item--contact" [ngClass]="{'d-none': smallMenu}">
           <a class="nav-link" href="#">Contacts</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/admin"><img src="assets/img/sign-in.png" alt="sign in"></a>
+        <li class="nav-item p-0" [ngClass]="{'d-none': !smallMenu}">
+          <a class="nav-link p-0" href="/admin"><img src="assets/img/sign-in.png" alt="sign in"></a>
         </li>
       </ul>
     </div>
