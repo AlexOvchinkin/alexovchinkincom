@@ -4,7 +4,7 @@
       <div class="item-wrapper">
         <div class="d-none d-lg-block shadow-sm description-wrapper">
           <ul class="list-unstyled description">
-            <li class="list-title">Project for pest-control company</li>
+            <li class="list-title">{{project.title}}</li>
             <li>Used:
               <ul class="list-used">
                 <li *ngFor="let tech of project.tech" class="ml-3 font-weight-bold">{{tech}}</li>
@@ -28,7 +28,7 @@
         </div>
         <div class="img-wrapper">
           <ul class="list-unstyled shadow-sm d-block d-lg-none description-sm">
-            <li class="list-title">Project for pest-control company</li>
+            <li class="list-title">{{project.title}}</li>
             <li>Used:
               <ul class="list-used">
                 <li *ngFor="let tech of project.tech" class="ml-3 font-weight-bold">{{tech}}</li>

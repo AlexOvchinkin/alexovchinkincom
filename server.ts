@@ -7,6 +7,7 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const api = require('./server/api');
 const mongo = require('./server/lib/mongo');
@@ -18,6 +19,8 @@ enableProdMode();
 
 // Express server
 const app = express();
+
+app.use(cors());
 
 // middlewares
 app.use(bodyParser.json());
@@ -31,7 +34,8 @@ mongo.connect(function(dbInstance) {
 });
 
 const PORT = process.env.PORT || 4000;
-const DIST_FOLDER = join(process.cwd(), 'dist');
+//const DIST_FOLDER = join(process.cwd(), 'dist');
+const DIST_FOLDER = process.cwd();
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/main');

@@ -111,18 +111,13 @@
   }
 }
 
-.hiring__img-wrapper {
-  position: relative;
-}
-
 .hiring__img {
   display: block;
-  position: absolute;
-  left: 1rem;
-  bottom: -15rem;
-  @include media-breakpoint-up(md) {
-    bottom: -35rem;
-  }
+  margin: 2rem auto;
+
+  @include media-breakpoint-up(lg) {
+    transform: scale(.8);
+  } 
 }
 
 .hiring__list {
@@ -137,9 +132,14 @@
   background-color: $bg-gray;
   position: relative;
   z-index: 80;
-  padding-top: 10rem;
+  padding-top: 12rem;
+
   @include media-breakpoint-up(md) {
-    padding-top: 12rem;
+    padding-top: 20rem;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 10rem;
   }
 }
 
@@ -152,7 +152,7 @@
   text-align: center;
   margin-bottom: 3rem;
   @include media-breakpoint-up(sm) {
-    text-align: left;
+    
   }
   @include media-breakpoint-up(md) {
     font-size: $h1-font-size;
@@ -295,6 +295,9 @@
   padding-top: 5rem;
   @include media-breakpoint-up(md) {
     font-size: $h1-font-size;
+  }
+
+  @include media-breakpoint-up(lg) {
     text-align: right;
   }
 }

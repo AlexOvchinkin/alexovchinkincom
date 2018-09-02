@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverOrigin: 'http://localhost:4000'
+  serverOrigin: 'http://alexovchinkin.com'
 };
