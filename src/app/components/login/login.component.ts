@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.navService.setSmallMenu(true);
-    
+
     this.formGroup = this.fb.group({
       name: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -35,6 +35,24 @@ export class LoginComponent implements OnInit {
     if (this.formGroup.invalid) return;
 
     this.authService.login(this.formGroup.value)
-      .subscribe(result => this.router.navigate(['/admin']));
+      .subscribe(
+        result => {
+          if (result) {
+            this.router.navigate(['/admin']);
+            return;
+          }
+
+          alert('Authentication error');
+        },
+        err => {
+          switch(err.status) {
+            case 401:
+              alert('Invalid login or password');
+              this.formGroup.reset();
+              break;
+            default:
+              alert('Server error: 500');  
+          }
+        });
   }
 }

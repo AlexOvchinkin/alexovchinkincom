@@ -17,15 +17,12 @@ export class AuthService {
   login(value: any): Observable<boolean> {
     return this.http
       .post(`${environment.serverOrigin}/api/login`, value)
-      .pipe(map(responseData => {
-        if (responseData && (responseData as IAuthResponse).token) {
-
-          if (isPlatformBrowser(this.platformId)) {
-            localStorage.setItem('user', JSON.stringify(responseData));
-            return true;
-          }
+      .pipe(map((responseData: IAuthResponse) => {
+        if (responseData && responseData.token && isPlatformBrowser(this.platformId)) {
+          localStorage.setItem('user', JSON.stringify(responseData));
+          return true;
         }
-
+        
         return false;
       }));
   };

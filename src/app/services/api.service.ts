@@ -21,29 +21,29 @@ export class APIService {
   }
 
   getTags(): Observable<ITag[]> {
-    return this.http
-      .get(`${environment.serverOrigin}/api/tags`) as Observable<ITag[]>;
+    return <Observable<ITag[]>>this.http
+      .get(`${environment.serverOrigin}/api/tags`);
   }
 
   addNewTag(tag: string): Observable<ITag> {
-    return this.http
-      .post(`${environment.serverOrigin}/api/new-tag`, { tag: tag }) as Observable<ITag>;
+    return <Observable<ITag>>this.http
+      .post(`${environment.serverOrigin}/api/new-tag`, { tag: tag });
   }
 
   getArticles(): Observable<IArticle[]> {
-    return this.http
-      .get(`${environment.serverOrigin}/api/articles/all`) as Observable<IArticle[]>;
+    return <Observable<IArticle[]>>this.http
+      .get(`${environment.serverOrigin}/api/articles/all`);
   }
 
   getArticleById(params: number): Observable<IArticle> {
     const id = params['id'];
-    return this.http
-      .get(`${environment.serverOrigin}/api/article/${id}`) as Observable<IArticle>;
+    return <Observable<IArticle>>this.http
+      .get(`${environment.serverOrigin}/api/article/${id}`);
   }
 
   getArticlesByTag(tag: ITag): Observable<IArticle[]> {
-    return this.http
-      .get(`${environment.serverOrigin}/api/articles/tag/${tag._id}`) as Observable<IArticle[]>;
+    return <Observable<IArticle[]>>this.http
+      .get(`${environment.serverOrigin}/api/articles/tag/${tag._id}`);
   }
 
   getProjects(): Observable<IProfileProject[]> {
